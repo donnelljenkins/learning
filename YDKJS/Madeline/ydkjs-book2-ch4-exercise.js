@@ -14,10 +14,9 @@ console.log(
 //         Name is required
 //         Rating is required
 
-function addReview(restaurantName, rating) {
+function addReview(restaurantName, rating) {  
   message = validateName(restaurantName);
-  message += validateRating ? validateRating(rating) : "";
-
+  
   function validateName(name) {
     if (!name) {
       return "Name is required";
@@ -33,8 +32,10 @@ function addReview(restaurantName, rating) {
 
     return "";
   };
+   
+  message += validateRating ? validateRating(rating) : "";
 
-   var message = "";
+  var message; //left this here for hoisting purposes, but personally would declare at top of function :)
 
   if (message) {
     alert(message);
@@ -52,11 +53,11 @@ function addReview(restaurantName, rating) {
   addReview("Sushi Masa", 9);
   addReview("", 9);
   addReview("Burger King");
-
+  
   var review = restaurantReviews.reviews[0];
 
   for (var x = 0; x < restaurantReviews.reviews.length; x++) {
-    var review = restaurantReviews.reviews[x];
+    let review = restaurantReviews.reviews[x];
     console.log(`${review.name} - ${review.rating}`);
   }
 
